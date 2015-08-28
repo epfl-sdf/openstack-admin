@@ -267,12 +267,19 @@ Backend:
 ### Petit quizz !
 
 \pause
+
 * Qui dois je interroger pour obtenir un mapping mac-ip ?
+
 \pause
+
 * Qui dois je interroger pour obtenir une liste des services disponibles ?
+
 \pause
+
 * Qui dois je interroger pour obtenir une liste des images ?
+
 \pause
+
 * Qui dois je interroger pour demarrer une machine virtuelle ?
 
 ## Openstack additional services
@@ -281,15 +288,93 @@ Backend:
 
 Gestion des bases de donnees
 
-* agent sur une base de donnee deja existante
-* creation depuis 0, installation de la db et ajout de l'agent
-* creation rapide d'une db
+* Agent sur une base de donnee deja existante
+* Creation depuis 0, creation du serveur et installation de la db.
+* Creation rapide d'une db et des utilisateurs associes.
+* Integration a horizon
 
 ### Designate
 
 Gestion des entrees DNS
 
+* Multiple DNS suporte (bind principalement mais aussi )
+* Interface http
+* Integration dans nova (a la creation d'une vm)
+
 ### Other 
 * Murano: Saas
 * Ironic: Bare metal provisioning (PXE)
+* Ceilometer: Metering 
+* Barbicane: Secret management
 * ...
+
+See http://git.openstack.org/cgit/openstack/governance/plain/reference/projects.yaml
+
+
+## Openstack type de service
+### Openstack type de service
+Suivant l'interaction et le role que le service a avec son environement, le service est separe en composant
+Nom standard a travers la stack
+
+### Api
+Point d'entree
+Delegue au autre services en fonction de la demande client
+
+### Scheduler
+Decide de l'endroit ou la tache va etre effecture
+* emplacement du volume
+* emplacement de la machine virtuel
+
+### 
+Decide de l'endroit ou la tache va etre effecture
+
+## Our openstack 
+### Generic organisation
+
+Loosely coupled services
+organized in abstraction level:
+
+* Module
+* Profile
+* Role
+
+### Module
+
+une technologie
+
+### Profile
+
+Simple composant 
+Unite atomique de gestion.
+Responsable de 
+
+* la creation ou la demande de creation de la base de donnee
+* la creation ou la demande de creation des access au stockage (systeme de fichier ou access a ceph)
+* la creation ou la demande des credentials d'acces au bus de messagerie
+* Ajout dans le load balancer
+* ...
+
+\pause
+
+Example:
+
+* Nova server
+* Nova client (noeud d'hypervisor)
+* Neutron server
+* Neutron client (agent)
+
+### Role
+
+Mapping 1-1 avec un server.
+Set de profile definissant le set de service applique sur le serveurs
+
+* controller
+* compute
+* controller_ha
+
+### Server 
+
+application d'un seul role
+
+### Controlleur
+
