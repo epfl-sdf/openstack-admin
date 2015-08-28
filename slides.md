@@ -266,9 +266,13 @@ Backend:
 
 ### Petit quizz !
 
+\pause
 * Qui dois je interroger pour obtenir un mapping mac-ip ?
+\pause
 * Qui dois je interroger pour obtenir une liste des services disponibles ?
+\pause
 * Qui dois je interroger pour obtenir une liste des images ?
+\pause
 * Qui dois je interroger pour demarrer une machine virtuelle ?
 
 ## Openstack additional services
