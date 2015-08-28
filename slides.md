@@ -27,6 +27,7 @@
     \pause
 
     * .  \pause . \pause . \pause .
+
 * Minimum d'interaction avec l'administrateur (changement des quotas d'utilisation des resources)
 
 * Gestion et management de ces resources.
@@ -52,6 +53,13 @@
 * bind entries
 * mariadb 
 ...
+\pause
+
+Transparent pour l'utilisateur sauf exception
+
+### Hybrid cloud
+
+Abstraction de resources externe
 
 ## Openstack les entrailles
 
@@ -271,4 +279,13 @@ Gestion des bases de donnees
 
 * agent sur une base de donnee deja existante
 * creation depuis 0, installation de la db et ajout de l'agent
-* 
+* creation rapide d'une db
+
+### Designate
+
+Gestion des entrees DNS
+
+### Other 
+* Murano: Saas
+* Ironic: Bare metal provisioning (PXE)
+* ...
