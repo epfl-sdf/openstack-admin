@@ -14,32 +14,55 @@
 * Utilisateur interagissent avec le framework pour acquerir une resource.
     \pause
 
-    * serveur
+    * Serveur
     \pause
 
-    * reseau
+    * Reseau
     \pause
 
-    * base de donnee
+    * Base de donnee
     \pause
 
-    * entree dns
+    * Entree dns
     \pause
 
     * .  \pause . \pause . \pause .
 * Minimum d'interaction avec l'administrateur (changement des quotas d'utilisation des resources)
-* Resource de base 
 
-## Openstack depuis l'exterieur 
+* Gestion et management de ces resources.
+
+### Interfaces
+
+* api
+    * python
+    * ruby
+    * perl
+\pause
+
+* Client en ligne de commande
+\pause
+
+* web interface
+
+### Backend
+
+* container lxc 
+* kvm machines
+* fiber channel volumes
+* bind entries
+* mariadb 
+...
 
 ## Openstack les entrailles
+
+### Openstack est simple
 
 \center
 \includegraphics[width=10cm]{img/archi.jpg}
 
 ## Autour d'openstack
 
-###Queing system 
+### Queing system 
 rabbitmq:
 
 \includegraphics[width=1cm]{img/rabbitmq_logo.png}
@@ -60,7 +83,7 @@ rabbitmq:
 {cluster_nodes, {['rabbit@node0', 'rabbit@node1'], disc}},
 ```
 
-###database system 
+### Database system 
 
 mariadb with galera:
 
@@ -94,7 +117,7 @@ haproxy:
 
 \pause
 
-* support de multiple protocol et de multiple verification des hosts
+* Support de multiple protocol et de multiple verification des hosts
 
 
 
@@ -110,11 +133,11 @@ keepalived:
 
 \pause
 
-* support de multiple type de verification pour les services sous jacent
+* Support de multiple type de verification pour les services sous jacent
 
 \pause
 
-* utilise en dessus du load balancer afin de garantir l'availability du load-balancer
+* Utilise en dessus du load balancer afin de garantir l'availability du load-balancer
 
 ### cache distribue
 
@@ -128,11 +151,29 @@ memcache:
 
 \pause
 
-* support de multiple type de verification pour les services sous jacent
+* Support de multiple type de verification pour les services sous jacent
 
 \pause
 
-* utilise en dessus du load balancer afin de garantir l'availability du load-balancer
+* Utilise en dessus du load balancer afin de garantir l'availability du load-balancer
+
+### Gestion du switching openflow:
+
+openvswitch:
+
+\includegraphics[width=3cm]{img/ovs_logo.png}
+
+\pause
+
+* Support d'openflow
+
+\pause
+
+* Gestion du tagging, gestion des tunnels gre ....
+
+\pause
+
+* Tres facilement scriptable, api disponible 
 
 ## Openstack base services
 
