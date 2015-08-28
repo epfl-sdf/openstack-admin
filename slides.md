@@ -34,7 +34,10 @@
 
 ### Interfaces
 
-* api
+* api (HTTP)
+\pause
+
+* libraries
     * python
     * ruby
     * perl
@@ -43,9 +46,9 @@
 * Client en ligne de commande
 \pause
 
-* web interface
+* Interface web
 
-### Backend
+### Service interface
 
 * container lxc 
 * kvm machines
@@ -61,12 +64,17 @@ Transparent pour l'utilisateur sauf exception
 
 Abstraction de resources externe
 
-## Openstack les entrailles
+# Openstack les entrailles
 
 ### Openstack est simple
 
 \center
 \includegraphics[width=10cm]{img/archi.jpg}
+
+### Openstack est simple
+
+Par morceau 
+:)
 
 ## Autour d'openstack
 
@@ -328,7 +336,7 @@ Decide de l'endroit ou la tache va etre effecture
 ### 
 Decide de l'endroit ou la tache va etre effecture
 
-## Our openstack 
+# Notre openstack 
 ### Generic organisation
 
 Loosely coupled services
@@ -378,3 +386,10 @@ application d'un seul role
 
 ### Controlleur
 
+
+
+# Conclusion
+###
+Openstack ne doit pas etre pris comme un seule bloc.
+Comme un ensemble de services assemble pour fonctionner de facon tres stable.
+Perte d'un seule sous systeme n'affecte que rarement le fonctionnement de l'ensemble.
