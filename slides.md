@@ -237,9 +237,38 @@ Backend:
 * kvm: virtualisation integre dans le noyaux linux.
 * Par default utilisation de ceph
 
+### Neutron
+
+Gestion du reseau
+
+* Gestion des reseaux:
+    * Reseau virtuel (vxlan, GRE pure)
+    * Reseau 'physique' (vlan et natif)
+* Gestion des resources reseau des machines:
+    * Port des machines
+    * MAC address 
+* Gestion du reseau au niveau des hyperviseurs
+* Gestion du resau au niveau du maitre
+* Gestion des volumes associe a travers cinder
+
+Backend:
+
+* kvm: virtualisation integre dans le noyaux linux.
+* Par default utilisation de ceph
+
+### Petit quizz !
+
+* Qui dois je interroger pour obtenir un mapping mac-ip ?
+* Qui dois je interroger pour obtenir une liste des services disponibles ?
+* Qui dois je interroger pour obtenir une liste des images ?
+* Qui dois je interroger pour demarrer une machine virtuelle ?
 
 ## Openstack additional services
 
 ### Trove
 
 Gestion des bases de donnees
+
+* agent sur une base de donnee deja existante
+* creation depuis 0, installation de la db et ajout de l'agent
+* 
