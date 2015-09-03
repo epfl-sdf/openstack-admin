@@ -9,7 +9,52 @@
 \center
 \includegraphics[width=10cm]{img/logo.png}
 
-### cloud is 'On demand'
+### Framework Open source de cloud prive
+
+* Framework
+    assemblage de technologie
+\pause
+* Framework
+    assemblage de technologie
+\pause
+* Open source
+    Source accessible, modifiable et libre d'acces
+
+\pause
+* Cloud 
+    A la demande 
+    Couche d'abstraction du materiel et de l'infrastructure
+
+\pause
+* prive
+    Le materiel vous appartient 
+
+### Cloud 
+
+Encore une couche d'abstraction !
+
+\pause
+
+resources informatique comme un service.
+
+* Manageable sans connaissance des couches du dessous
+
+### Private cloud
+
+Gestion du cloud en interne de l'entreprise
+
+### Hybrid cloud
+
+Abstraction de resources externe a travers une api interne
+
+Exemple: merger switch cloud et un cloud prive
+
+### Niveaux d'abstraction
+
+\center
+\includegraphics[width=10cm]{img/abstraction.png}
+
+### On demand
 
 * Utilisateur interagissent avec le framework pour acquerir une resource.
     \pause
@@ -58,11 +103,8 @@
 ...
 \pause
 
-Transparent pour l'utilisateur sauf exception
+Transparent pour l'utilisateur
 
-### Hybrid cloud
-
-Abstraction de resources externe
 
 # Openstack les entrailles
 
@@ -155,7 +197,7 @@ keepalived:
 
 * Utilise en dessus du load balancer afin de garantir l'availability du load-balancer
 
-### cache distribue
+### cache
 
 memcache:
 
@@ -163,15 +205,12 @@ memcache:
 
 \pause
 
-* Support pour le balancage d'ip (vrrp)
+* stockage cle/valeur en memoire
 
 \pause
 
-* Support de multiple type de verification pour les services sous jacent
+* Simple et rapide
 
-\pause
-
-* Utilise en dessus du load balancer afin de garantir l'availability du load-balancer
 
 ### Gestion du switching openflow:
 
@@ -193,6 +232,14 @@ openvswitch:
 
 ## Openstack base services
 
+### Horizon 
+
+Couche de presentation:
+
+* application django modulable.
+* modulable en fonction des services ajoutes a la stack.
+* couvre la majorite des fonctions de la stack ainsi que les fonctions de management
+
 ### Keystone
 
 * Responsable de l'identity
@@ -205,16 +252,9 @@ openvswitch:
 Backend:
 
 * utilise avec suivant l'utilisateur une query dans le ldap ou dans mariadb.
-    * utilisateur humain ==> ldap
-    * service ==> mariadb
+    * utilisateur humain                 ==> ldap
+    * service ou modification de l'admin ==> mariadb
 
-### Horizon 
-
-Couche de presentation:
-
-* application django modulable.
-* modulable en fonction des services ajoutes a la stack.
-* couvre la majorite des fonctions de la stack ainsi que les fonctions de management
 
 ### Cinder
 
@@ -236,9 +276,12 @@ Interface de stockage des images.
 * hosting des images utilisee pour le demarrage des vms
 * Gestion des caches sur les hyperviseurs a travers le getionnaire de machine virtuelles
 
+\pause
+
 Backend:
 
 * filesystem: stockage local et replication sur les controlleurs
+* ceph: stockage distant sur le cluster ceph
 
 ### Nova
 
@@ -248,10 +291,12 @@ Gestion des machines virtuelles
 * hosting des images utilisee pour le demarrage des vms
 * Gestion des volumes associe a travers cinder
 
+\pause
+
 Backend:
 
 * kvm: virtualisation integre dans le noyaux linux.
-* Par default utilisation de ceph
+* Par default utilisation de ceph Comme backend de stockage
 
 ### Neutron
 
@@ -263,14 +308,19 @@ Gestion du reseau
 * Gestion des resources reseau des machines:
     * Port des machines
     * MAC address 
+* Gestion des services lie au reseau:
+    * Load balancer
+    * Firewall
+    * Routeur (nat et routing)
+\pause
 * Gestion du reseau au niveau des hyperviseurs
-* Gestion du resau au niveau du maitre
-* Gestion des volumes associe a travers cinder
+* Gestion du reseau au niveau du server neutron
+
+\pause
 
 Backend:
 
-* kvm: virtualisation integre dans le noyaux linux.
-* Par default utilisation de ceph
+* Openvswitch agent sur tous les noeuds
 
 ### Petit quizz !
 
@@ -334,6 +384,7 @@ Decide de l'endroit ou la tache va etre effecture
 * emplacement de la machine virtuel
 
 ### 
+
 Decide de l'endroit ou la tache va etre effecture
 
 # Notre openstack 
