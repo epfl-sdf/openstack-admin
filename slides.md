@@ -433,14 +433,22 @@ Set de profile definissant le set de service applique sur le serveurs
 
 ### Server 
 
-application d'un seul role
+Application d'un seul role
 
 ### Controlleur
 
+* API et serveurs
+* queues
+* interface
 
+### Compute 
+
+* KVM
 
 # Conclusion
-###
+
 Openstack ne doit pas etre pris comme un seule bloc.
+
 Comme un ensemble de services assemble pour fonctionner de facon tres stable.
+
 Perte d'un seule sous systeme n'affecte que rarement le fonctionnement de l'ensemble.
