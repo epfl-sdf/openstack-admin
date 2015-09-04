@@ -1,88 +1,94 @@
 %Openstack, open cloud framework
 %Malik Bougacha
-%25 août 2015
+%4 septembre 2015
 
 # Introduction
 
-### openstack
+### Openstack
 
 \center
 \includegraphics[width=10cm]{img/logo.png}
 
-### Framework Open source de cloud prive
+### Framework Open source de cloud privé
 
-* Framework
-    assemblage de technologie
-\pause
-* Framework
-    assemblage de technologie
-\pause
-* Open source
-    Source accessible, modifiable et libre d'acces
+* Framework:
+    Assemblage de technologies.
 
 \pause
-* Cloud 
-    A la demande 
-    Couche d'abstraction du materiel et de l'infrastructure
+
+* Open source:
+    Source accessible, modifiable et libre d'accès.
 
 \pause
-* prive
-    Le materiel vous appartient 
 
-### Cloud 
+* Cloud:
+    Service à la demande, self-service.
+    Couche d'abstraction de ressource et de l'infrastructure
+
+\pause
+
+* Privé:
+    Le matériel vous appartient !
+
+### Cloud
 
 Encore une couche d'abstraction !
 
 \pause
 
-resources informatique comme un service.
+Abstraction des ressources, présentation de ressources en tant que services
 
-* Manageable sans connaissance des couches du dessous
+* Gérable sans connaissance des couches du dessous.
 
-### Private cloud
+\pause
 
-Gestion du cloud en interne de l'entreprise
+* Cloud privé: Gestion des ressources abstraite en interne de l'entreprise.
 
-### Hybrid cloud
+\pause
 
-Abstraction de resources externe a travers une api interne
+* Cloud publique: Gestion du cloud de l'entreprise.
 
-Exemple: merger switch cloud et un cloud prive
+\pause
+
+* Cloud hybride: Abstraction de ressources externe à travers une api interne.
+    * Exemple: Abstraire l'Openstack de Switch et l'Openstack EPFL
 
 ### Niveaux d'abstraction
 
 \center
 \includegraphics[width=10cm]{img/abstraction.png}
 
-### On demand
+### A la demande
 
-* Utilisateur interagissent avec le framework pour acquerir une resource.
+* Utilisateur Interagissant avec le framework pour acquérir une ressource.
     \pause
 
     * Serveur
     \pause
 
-    * Reseau
+    * Réseau
     \pause
 
-    * Base de donnee
+    * Volume de stockage
     \pause
 
-    * Entree dns
+    * Entrée dns
     \pause
 
-    * .  \pause . \pause . \pause .
+    * ...
 
-* Minimum d'interaction avec l'administrateur (changement des quotas d'utilisation des resources)
+\pause
 
-* Gestion et management de ces resources.
+* Minimum d'interaction directe avec l'administrateur (changement des quotas d'utilisation des ressources).
+
+* Gestion et management de ces ressources.
 
 ### Interfaces
 
-* api (HTTP)
+* Api (HTTP)
 \pause
 
-* libraries
+* librairies
     * python
     * ruby
     * perl
@@ -95,15 +101,14 @@ Exemple: merger switch cloud et un cloud prive
 
 ### Service interface
 
-* container lxc 
+* container lxc
 * kvm machines
 * fiber channel volumes
 * bind entries
-* mariadb 
 ...
 \pause
 
-Transparent pour l'utilisateur
+Opaque pour l'utilisateur
 
 
 # Openstack les entrailles
@@ -115,55 +120,55 @@ Transparent pour l'utilisateur
 
 ### Openstack est simple
 
-Par morceau 
+Par morceau
 :)
 
-## Autour d'openstack
+## Autour d'Openstack
 
-### Queing system 
+### Queuing system
 rabbitmq:
 
 \includegraphics[width=1cm]{img/rabbitmq_logo.png}
 
 \pause
 
-* erlang based 
+* Écrit en erlang.
 
 \pause
 
-* quasi incassable™
+* Quasi incassable™.
 
 \pause
 
-* triviallement clusterisable
+* Trivialement clusterisable.
 
 ```erlang
 {cluster_nodes, {['rabbit@node0', 'rabbit@node1'], disc}},
 ```
 
-### Database system 
+### Base de donnée relationnelle
 
-mariadb with galera:
+mariadb avec galera:
 
 \includegraphics[width=3cm]{img/galera_logo.png}
 
 \pause
 
-* fork of mysql after the glorious sun
+* Fork de mysql, open source
 
 \pause
 
-* replication en master/master synchrone
+* Réplication en master/master synchrone.
 
 \pause
 
-* Gestion relativement aisee
+* Gestion relativement aisée.
 
 \pause
 
-* Replication et resolution des conflicts
+* Réplication et résolution des conflits.
 
-### load balancer
+### Load-balancer
 
 haproxy:
 
@@ -171,50 +176,48 @@ haproxy:
 
 \pause
 
-* load balancer
+* Support de multiples protocoles.
 
 \pause
 
-* Support de multiple protocol et de multiple verification des hosts
+* Multiples vérifications des hosts.
 
+### Balançage dynamique d'ip:
 
-
-### balancage dynamique d'ip:
-
-keepalived:
+Keepalived:
 
 \includegraphics[width=3cm]{img/keepalived_logo.png}
 
 \pause
 
-* Support pour le balancage d'ip (vrrp)
+* Support pour le balançage d'ip (VRRP).
 
 \pause
 
-* Support de multiple type de verification pour les services sous jacent
+* Support de multiple type de vérification pour les services sous-jacent.
 
 \pause
 
-* Utilise en dessus du load balancer afin de garantir l'availability du load-balancer
+* Utilisé en dessus du load-balancer afin de garantir la disponibilité du load-balancer.
 
-### cache
+### Cache
 
-memcache:
+memcached:
 
 \includegraphics[width=3cm]{img/memcache_logo.png}
 
 \pause
 
-* stockage cle/valeur en memoire
+* Stockage clé/valeur en mémoire.
 
 \pause
 
-* Simple et rapide
+* Simple et rapide.
 
 
-### Gestion du switching openflow:
+### Gestion du Réseau
 
-openvswitch:
+openVSwitch:
 
 \includegraphics[width=3cm]{img/ovs_logo.png}
 
@@ -224,105 +227,108 @@ openvswitch:
 
 \pause
 
-* Gestion du tagging, gestion des tunnels gre ....
+* Gestion du tagging.
 
 \pause
 
-* Tres facilement scriptable, api disponible 
+* Gestion des tunnels GRE.
 
-## Openstack base services
+\pause
 
-### Horizon 
+* Très facilement scriptable, api disponible dans de nombreux langages.
 
-Couche de presentation:
+## Service de base d'Openstack
 
-* application django modulable.
-* modulable en fonction des services ajoutes a la stack.
-* couvre la majorite des fonctions de la stack ainsi que les fonctions de management
+### Horizon
+
+Couche de présentation:
+
+* Application django.
+* Modulable en fonction des services ajoutés à la stack.
+* Couvre la majorité des fonctions de la stack ainsi que les fonctions de management.
 
 ### Keystone
 
-* Responsable de l'identity
+* Responsable de l'identité
 
-    * service
-    * list des points d'acces aux apis
-    * authorization
-    * authentification
+    * Service
+    * Liste des points d'accès aux apis
+    * Autorisation
+    * Authentification
+
+\pause
 
 Backend:
 
-* utilise avec suivant l'utilisateur une query dans le ldap ou dans mariadb.
-    * utilisateur humain                 ==> ldap
-    * service ou modification de l'admin ==> mariadb
-
+* LDAP: Utilisateur humain
+* mariadb: Service ou modification de l'admin
 
 ### Cinder
 
 Interface de stockage.
 
-* creation des volumes des machines virtuelless.
-* creation de volumes supplementaire et attachement au vms
-* hosting des images utilisee pour le demarrage des vms
-
-Backend:
-
-* ceph: stockage generique object d'un project talk
-
-### Glance
-
-Interface de stockage des images.
-
-* creation et manipulation 
-* hosting des images utilisee pour le demarrage des vms
-* Gestion des caches sur les hyperviseurs a travers le getionnaire de machine virtuelles
+* Création des volumes des machines virtuelles.
+* Création des volumes supplémentaires et attachement aux vms.
+* Hosting des images utilisées pour le démarrage des vms.
 
 \pause
 
 Backend:
 
-* filesystem: stockage local et replication sur les controlleurs
-* ceph: stockage distant sur le cluster ceph
+* CEPH: stockage générique object
+
+### Glance
+
+Interface de stockage des images.
+
+* Création et manipulation
+* Hosting des images utilisées pour le démarrage des VMS
+* Gestion des caches sur les hyperviseurs à travers le gestionnaire de machines virtuelles
+
+\pause
+
+Backend:
+
+* filesystem: stockage local et réplication sur les contrôleurs
+* CEPH: stockage distant sur le cluster CEPH
 
 ### Nova
 
 Gestion des machines virtuelles
 
 * Gestion des hyperviseurs
-* hosting des images utilisee pour le demarrage des vms
-* Gestion des volumes associe a travers cinder
+* Hosting des images utilisées pour le démarrage des vms
+* Gestion des volumes associé à travers cinder
 
 \pause
 
 Backend:
 
-* kvm: virtualisation integre dans le noyaux linux.
-* Par default utilisation de ceph Comme backend de stockage
+* KVM: virtualisation intégrée dans le noyaux linux.
+* CEPH: Par défaut comme backend de stockage
 
 ### Neutron
 
-Gestion du reseau
+Gestion du réseau
 
-* Gestion des reseaux:
-    * Reseau virtuel (vxlan, GRE pure)
-    * Reseau 'physique' (vlan et natif)
-* Gestion des resources reseau des machines:
+* Gestion des réseaux:
+    * Réseau virtuel (vxlan)
+    * Réseau physique (vlan et natif)
     * Port des machines
-    * MAC address 
-* Gestion des services lie au reseau:
-    * Load balancer
+    * Adresse MAC
+
+* Gestion des services lié au réseau:
+    * Load-balancer
     * Firewall
     * Routeur (nat et routing)
-\pause
-* Gestion du reseau au niveau des hyperviseurs
-* Gestion du reseau au niveau du server neutron
 
 \pause
 
 Backend:
 
-* Openvswitch agent sur tous les noeuds
+* OpenvSwitch: support uniquement pour le bridging, prévoir le futur.
 
-### Petit quizz !
+### Petit quiz !
 
 \pause
 
@@ -338,64 +344,72 @@ Backend:
 
 \pause
 
-* Qui dois je interroger pour demarrer une machine virtuelle ?
+* Qui dois je interroger pour démarrer une machine virtuelle ?
 
-## Openstack additional services
+## Service additionnel d'Openstack
 
 ### Trove
 
-Gestion des bases de donnees
+Gestion des bases de données
 
-* Agent sur une base de donnee deja existante
-* Creation depuis 0, creation du serveur et installation de la db.
-* Creation rapide d'une db et des utilisateurs associes.
-* Integration a horizon
+* Agent sur une base de donnée déjà existante
+* Création depuis 0
+    * Création du serveur
+    * Installation de la base de donnée
+* Création rapide d'une base de donnée et des utilisateurs associés.
+* Intégration à horizon
 
 ### Designate
 
-Gestion des entrees DNS
+Gestion des entrées DNS
 
-* Multiple DNS suporte (bind principalement mais aussi )
-* Interface http
-* Integration dans nova (a la creation d'une vm)
+* Multiple DNS supporté (bind principalement mais aussi PowerDNS).
+* Interface HTTP.
+* Intégration dans nova (à la création d'une VM).
 
-### Other 
-* Murano: Saas
+### Autre
+* Murano: Saas dans Openstack
 * Ironic: Bare metal provisioning (PXE)
-* Ceilometer: Metering 
+* Ceilometer: Metering
 * Barbicane: Secret management
 * ...
 
-See http://git.openstack.org/cgit/openstack/governance/plain/reference/projects.yaml
+See http://git.Openstack.org/cgit/Openstack/governance/plain/
+reference/projects.yaml
 
 
-## Openstack type de service
-### Openstack type de service
-Suivant l'interaction et le role que le service a avec son environement, le service est separe en composant
-Nom standard a travers la stack
+## Openstack: type de service
+
+### type de service
+Suivant l'interaction et le rôle que le service a avec son environnement, le service est séparé en composants.
+
+Nom standard à travers la stack
 
 ### Api
-Point d'entree
-Delegue au autre services en fonction de la demande client
+
+Point d'entrée.
+
+\pause
+
+Délègue aux autres services en fonction de la demande client.
 
 ### Scheduler
-Decide de l'endroit ou la tache va etre effecture
-* emplacement du volume
-* emplacement de la machine virtuel
 
-### 
+Décide de l'endroit où la tâche va être effectuée
 
-Decide de l'endroit ou la tache va etre effecture
+* Emplacement du volume
+* Emplacement de la machine virtuel
 
-# Notre openstack 
-### Generic organisation
 
-Loosely coupled services
-organized in abstraction level:
+# Notre Openstack
+
+### Organisation générique
+
+Organisé en niveau d'abstraction
 
 * Module
 * Profile
-* Role
+* Rôle
 
 ### Module
 
@@ -403,37 +417,43 @@ une technologie
 
 ### Profile
 
-Simple composant 
-Unite atomique de gestion.
-Responsable de 
+Simple composant
+Unité atomique de gestion.
+Responsable de
 
-* la creation ou la demande de creation de la base de donnee
-* la creation ou la demande de creation des access au stockage (systeme de fichier ou access a ceph)
-* la creation ou la demande des credentials d'acces au bus de messagerie
-* Ajout dans le load balancer
+* la création ou la demande de création de la base de donnée
+* la création ou la demande de création des accès au stockage (système de fichier ou accès a CEPH)
+* la création ou la demande des droits d'accès au bus de messagerie
+* Ajout dans le load-balancer
 * ...
 
 \pause
 
-Example:
+Exemple:
 
-* Nova server
-* Nova client (noeud d'hypervisor)
-* Neutron server
+* Nova serveur
+* Nova client (nœud d'hyperviseur)
+* Neutron serveur
 * Neutron client (agent)
 
-### Role
+### Rôle
 
-Mapping 1-1 avec un server.
-Set de profile definissant le set de service applique sur le serveurs
+Mapping 1-1 avec un serveur.
+Set de profile définissant le set de service appliqué sur le serveurs
 
 * controller
 * compute
 * controller_ha
 
-### Server 
+### Serveur
 
-Application d'un seul role
+Application d'un seul rôle
+
+### Compute
+
+* KVM
+* nova client
+* neutron client
 
 ### Controlleur
 
@@ -441,14 +461,19 @@ Application d'un seul role
 * queues
 * interface
 
-### Compute 
-
-* KVM
 
 # Conclusion
 
-Openstack ne doit pas etre pris comme un seule bloc.
+### Conclusion
 
-Comme un ensemble de services assemble pour fonctionner de facon tres stable.
+Openstack ne doit pas être pris comme un seule bloc.
 
-Perte d'un seule sous systeme n'affecte que rarement le fonctionnement de l'ensemble.
+Il s'agit d'un assemblage des meilleurs technologies open source accessible.
+
+Comme un ensemble de services assemble pour fonctionner de façon très stable.
+
+Perte d'un seule sous système n'affecte que rarement le fonctionnement de l'ensemble.
+
+### Petit mot de la fin 
+
+Don't hesitate to patch !
